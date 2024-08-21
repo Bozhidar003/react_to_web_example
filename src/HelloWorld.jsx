@@ -1,15 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const styles = `
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #1a1a1a;
-    color: #ffffff;
-  }
   .hello-world-container {
     font-family: Arial, sans-serif;
     padding: 20px;
@@ -20,6 +11,7 @@ const styles = `
     text-align: center;
     max-width: 300px;
     width: 100%;
+    color: #ffffff;
   }
   .hello-world-button {
     background-color: #4CAF50;
@@ -51,13 +43,15 @@ const styles = `
 const HelloWorld = ({ label = "Hello", name = "World", value = "{}" }) => {
   const [clickCount, setClickCount] = useState(0);
   const [lastClickTime, setLastClickTime] = useState(null);
+  const [parsedValue, setParsedValue] = useState({});
 
-  let parsedValue = {};
-  try {
-    parsedValue = JSON.parse(value);
-  } catch (error) {
-    console.error("Failed to parse value prop:", error);
-  }
+  useEffect(() => {
+    try {
+      setParsedValue(JSON.parse(value));
+    } catch (error) {
+      console.error("Failed to parse value prop:", error);
+    }
+  }, [value]);
 
   const handleClick = () => {
     setClickCount(prevCount => prevCount + 1);

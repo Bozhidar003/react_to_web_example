@@ -1,13 +1,4 @@
-(function(e,t){typeof exports=="object"&&typeof module<"u"?t(require("react"),require("react-dom"),require("https://esm.sh/react-to-webcomponent@2.0.0")):typeof define=="function"&&define.amd?define(["react","react-dom","https://esm.sh/react-to-webcomponent@2.0.0"],t):(e=typeof globalThis<"u"?globalThis:e||self,t(e.React,e.ReactDOM,e.reactToWebComponent))})(this,function(e,t,r){"use strict";const i=`
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #1a1a1a;
-    color: #ffffff;
-  }
+(function(e,t){typeof exports=="object"&&typeof module<"u"?t(require("react"),require("react-dom"),require("https://esm.sh/react-to-webcomponent@2.0.0")):typeof define=="function"&&define.amd?define(["react","react-dom","https://esm.sh/react-to-webcomponent@2.0.0"],t):(e=typeof globalThis<"u"?globalThis:e||self,t(e.React,e.ReactDOM,e.reactToWebComponent))})(this,function(e,t,s){"use strict";const i=`
   .hello-world-container {
     font-family: Arial, sans-serif;
     padding: 20px;
@@ -18,6 +9,7 @@
     text-align: center;
     max-width: 300px;
     width: 100%;
+    color: #ffffff;
   }
   .hello-world-button {
     background-color: #4CAF50;
@@ -44,4 +36,4 @@
   h2 {
     color: #4CAF50;
   }
-`,c=r(({label:s="Hello",name:a="World",value:d="{}"})=>{const[l,p]=e.useState(0),[m,u]=e.useState(null);let n={};try{n=JSON.parse(d)}catch(o){console.error("Failed to parse value prop:",o)}const f=()=>{p(o=>o+1),u(new Date)},h=o=>o?o.toTimeString().split(" ")[0]:"";return e.createElement(e.Fragment,null,e.createElement("style",null,i),e.createElement("div",{className:"hello-world-container"},e.createElement("h2",null,s," ",a,"!"),e.createElement("button",{className:"hello-world-button",onClick:f},"Click Me"),e.createElement("p",{className:"click-info"},l>0?`Clicked ${l} times. Last one at ${h(m)}`:"Not clicked yet"),n&&n.message&&e.createElement("p",null,"Additional info: ",n.message)))},e,t);customElements.define("hello-world-component",c)});
+`,c=s(({label:a="Hello",name:d="World",value:l="{}"})=>{const[r,p]=e.useState(0),[u,m]=e.useState(null),[n,f]=e.useState({});e.useEffect(()=>{try{f(JSON.parse(l))}catch(o){console.error("Failed to parse value prop:",o)}},[l]);const h=()=>{p(o=>o+1),m(new Date)},b=o=>o?o.toTimeString().split(" ")[0]:"";return e.createElement(e.Fragment,null,e.createElement("style",null,i),e.createElement("div",{className:"hello-world-container"},e.createElement("h2",null,a," ",d,"!"),e.createElement("button",{className:"hello-world-button",onClick:h},"Click Me"),e.createElement("p",{className:"click-info"},r>0?`Clicked ${r} times. Last one at ${b(u)}`:"Not clicked yet"),n&&n.message&&e.createElement("p",null,"Additional info: ",n.message)))},e,t,{shadow:!0,props:["label","name","value"]});customElements.define("hello-world-component",c)});

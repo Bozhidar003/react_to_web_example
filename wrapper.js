@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import reactToWebComponent from 'https://esm.sh/react-to-webcomponent@2.0.0';
+import reactToWebComponent from 'react-to-webcomponent';
 import HelloWorld from './src/HelloWorld';
+
+console.log('React:', React);
+console.log('ReactDOM:', ReactDOM);
+console.log('reactToWebComponent:', reactToWebComponent);
+console.log('HelloWorld:', HelloWorld);
 
 const HelloWorldWebComponent = reactToWebComponent(HelloWorld, React, ReactDOM, {
   shadow: true,

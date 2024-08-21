@@ -8,7 +8,7 @@ export default defineConfig({
       entry: 'wrapper.js',
       name: 'HelloWorldWebComponent',
       fileName: (format) => `hello-world-web-component.${format}.js`,
-      formats: ['umd']
+      formats: ['es'] // Change to ES module format
     },
     rollupOptions: {
       external: ['react', 'react-dom'],

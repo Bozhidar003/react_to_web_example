@@ -5,7 +5,8 @@ export default defineConfig({
     lib: {
       entry: 'wrapper.js',
       name: 'HelloWorldWebComponent',
-      fileName: 'hello-world-web-component'
+      fileName: (format) => `hello-world-web-component.${format}.js`,
+      formats: ['umd']
     },
     rollupOptions: {
       external: ['react', 'react-dom'],

@@ -13,7 +13,7 @@ export default defineConfig({
     rollupOptions: {
       external: ['react', 'react-dom', 'https://esm.sh/react-to-webcomponent@2.0.0'],
     },
-    minify: false,
+    minify: true,
     sourcemap: true
   }
 });

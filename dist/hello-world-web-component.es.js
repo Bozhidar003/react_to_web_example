@@ -1007,12 +1007,9 @@ const HelloWorld = ({ label = "Hello", name = "World", value = "{}" }) => {
     ] })
   ] });
 };
-let reactToWebComponent;
 async function initializeWebComponent() {
-  if (!reactToWebComponent) {
-    const module = await import("https://esm.sh/react-to-webcomponent@2.0.0");
-    reactToWebComponent = module.default;
-  }
+  const module = await import("https://esm.sh/react-to-webcomponent@2.0.0");
+  const reactToWebComponent = module.default;
   const HelloWorldWebComponent = reactToWebComponent(HelloWorld, require$$0, ReactDOM, {
     shadow: true,
     props: ["label", "name", "value"]

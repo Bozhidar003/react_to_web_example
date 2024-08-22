@@ -8,16 +8,10 @@ export default defineConfig({
       entry: 'wrapper.js',
       name: 'HelloWorldWebComponent',
       fileName: (format) => `hello-world-web-component.${format}.js`,
-      formats: ['es'] // Change to ES module format
+      formats: ['es']
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM'
-        }
-      }
+      external: ['react', 'react-dom', 'https://esm.sh/react-to-webcomponent@2.0.0'],
     },
     minify: false,
     sourcemap: true

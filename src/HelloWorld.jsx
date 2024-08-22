@@ -67,7 +67,7 @@ const HelloWorld = ({ label = "Hello", name = "World", value = "{}" }) => {
       <style>{styles}</style>
       <div className="hello-world-container">
         <h2>{label} {name}!</h2>
-        <button className="hello-world-button" onClick={handleClick}>
+        <button type="button" className="hello-world-button" onClick={handleClick}>
           Click Me
         </button>
         <p className="click-info">
@@ -75,7 +75,7 @@ const HelloWorld = ({ label = "Hello", name = "World", value = "{}" }) => {
             ? `Clicked ${clickCount} times. Last one at ${formatTime(lastClickTime)}`
             : "Not clicked yet"}
         </p>
-        {parsedValue && parsedValue.message && (
+        {parsedValue?.message && (
           <p>Additional info: {parsedValue.message}</p>
         )}
       </div>

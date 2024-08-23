@@ -12,13 +12,18 @@ export default defineConfig({
       formats: ['iife']
     },
     rollupOptions: {
-      external: [],
+      external: ['react', 'react-dom'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM'
+        }
+      }
     },
     minify: false,
     sourcemap: true
   },
   define: {
-    'process.env.NODE_ENV': '"development"',
-    'global': 'window'
+    'process.env.NODE_ENV': '"development"'
   }
 });

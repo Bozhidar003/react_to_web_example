@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import reactToWebComponent from 'react-to-webcomponent';
 import HelloWorld from './src/HelloWorld.jsx';
 
-async function initializeWebComponent() {
-  const reactToWebComponent = await import('https://esm.sh/react-to-webcomponent@2.0.0').then(m => m.default);
-
-  const HelloWorldWebComponent = reactToWebComponent(HelloWorld, React, ReactDOM, {
-    shadow: true,
-    props: ['label', 'name', 'value']
-  });
-
-  if (!customElements.get('hello-world-component')) {
-    customElements.define('hello-world-component', HelloWorldWebComponent);
-  }
+// Ensure process.env is defined
+if (typeof process === 'undefined') {
+  window.process = { env: { NODE_ENV: 'development' } };
 }
 
-initializeWebComponent();
+const HelloWorldWebComponent = reactToWebComponent(HelloWorld, React, ReactDOM, {
+  shadow: true,
+  props: ['label', 'name', 'value']
+});
+
+if (!customElements.get('hello-world-component')) {
+  customElements.define('hello-world-component', HelloWorldWebComponent);
+}
